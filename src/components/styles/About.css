@@ -1,0 +1,106 @@
+.about-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #101010;
+    color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    animation: fadeIn 0.4s ease-in;
+  }
+  
+  .about-container h1 {
+    font-size: 2.5rem;
+    color: aqua;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .greeting {
+    font-size: 1.2rem;
+    color: lightgreen;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .about-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1rem;
+  }
+  
+  .about-list li {
+    background-color: #1a1a1a;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border-left: 5px solid aqua;
+    border-radius: 8px;
+    transition: background 0.3s;
+  }
+  
+  .about-list li:hover {
+    background-color: #222;
+  }
+  
+  .about-footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-style: italic;
+    color: #ccc;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+
+  @media (max-width: 768px) {
+    .about-container {
+      padding: 1.5rem;
+    }
+  
+    .about-container h1 {
+      font-size: 2rem;
+    }
+  
+    .greeting {
+      font-size: 1rem;
+    }
+  
+    .about-list li {
+      padding: 0.8rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .about-container {
+      padding: 1rem;
+    }
+  
+    .about-container h1 {
+      font-size: 1.5rem;
+    }
+  
+    .greeting {
+      font-size: 0.95rem;
+    }
+  
+    .about-list li {
+      padding: 0.7rem;
+      font-size: 0.95rem;
+    }
+  
+    .about-footer {
+      font-size: 0.9rem;
+    }
+  }
+  
+  

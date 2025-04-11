@@ -1,0 +1,14 @@
+.right-pannel{
+    width: 30%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: .5rem;
+    justify-content:center;
+    align-items: center;
+    padding: 1rem;
+}
+.right-pannel a{ 
+    font-size: 1.2rem;
+}

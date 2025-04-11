@@ -1,0 +1,109 @@
+
+
+.content-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 3rem 1rem 1rem 1rem;
+}
+
+.usecontextexample {
+    width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    height: 3rem;
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+         rgba(10, 30, 50, 0.6) 20%,
+         rgba(10, 30, 50, 0.6) 80%,
+        transparent 100%
+        );
+
+        color: #a2ffff;
+        text-shadow: 0 0 5px #2ed2ff, 0 0 10px #2ed2ff;
+    font-size: 1.5rem;
+    padding: 1rem 0;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+  }
+  
+  /* Animating text inside */
+  .usecontextexample span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scrollText 10s linear infinite;
+  }
+  
+  @keyframes scrollText {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+
+  @media (max-width: 900px) {
+    .content-container {
+      flex-direction: column;
+      align-items: center;
+      margin: 0.5rem;
+      padding: 0;
+      gap: 0.5rem;
+    }
+  
+    .left-pannel,
+    .right-pannel,
+    .container {
+      width: 90% !important;
+      margin: 0;
+      padding: 0.5rem;
+    }
+  
+    .socials {
+      width: 90% !important;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+  
+    .usecontextexample {
+      font-size: 1.2rem;
+      padding: 0.5rem 0.5rem;
+      margin: 0.5rem auto;
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .usecontextexample {
+      font-size: 1rem;
+      padding: 0.4rem;
+    }
+  
+    .left-pannel a,
+    .right-pannel a {
+      font-size: 1rem;
+      text-align: center;
+    }
+  
+    .container h2 {
+      font-size: 1.2rem;
+      text-align: center;
+    }
+  
+    .socials {
+      gap: 0.2rem;
+    }
+  }
+  
+  

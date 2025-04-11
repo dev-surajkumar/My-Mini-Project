@@ -9,7 +9,7 @@ import { AuthProvider } from './AuthContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/My-Mini-Project">
       <AuthProvider>
         <UserProvider>
           <App />

@@ -12,6 +12,7 @@ import Todolist from './components/Todolist';
 import Passreset from './components/Passreset';
 import Posts from './components/Posts';
 import About from './components/About';
+import Imagegenerator from './components/Imagegenerator';
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
       <Route path="/passreset" element={<Passreset/>}/>
       <Route path="/post" element={<Posts/>}/>
       <Route path="/about" element={<About/>}/>
+      <Route path="/aiimage" element={<Imagegenerator/>}/>
     </Routes>
   </main>
   <Footer />

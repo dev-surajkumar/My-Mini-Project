@@ -4,22 +4,20 @@ import './styles/myposts.css';
 
 const Posts = () => {
   const [dogData, setDogData] = useState([]);
+  const [loading, setLoading] = useState(true);  // Track loading state
   const apikey = process.env.REACT_APP_DOG_API_KEY;
 
   useEffect(() => {
     const fetchDogs = async () => {
       try {
-        // Step 1: Get all breeds
         const breedRes = await axios.get('https://api.thedogapi.com/v1/breeds', {
           headers: {
             'x-api-key': apikey,
           },
         });
 
-        // Step 2: Take first 40 breeds
-        const selectedBreeds = breedRes.data.slice(0, 40);
+        const selectedBreeds = breedRes.data.slice(0, 15);
 
-        // Step 3: Fetch image for each breed
         const imagePromises = selectedBreeds.map(async (breed) => {
           const imageRes = await axios.get(
             `https://api.thedogapi.com/v1/images/search?breed_id=${breed.id}&limit=1`,
@@ -45,6 +43,8 @@ const Posts = () => {
         setDogData(finalDogData);
       } catch (error) {
         console.error('Error fetching dog data:', error);
+      } finally {
+        setLoading(false); // Set loading to false once data is fetched
       }
     };
 
@@ -53,14 +53,21 @@ const Posts = () => {
 
   return (
     <div className="dog-container">
-      {dogData.map((dog) => (
-        <div className="dog-card" key={dog.id}>
-          <img src={dog.image} alt={dog.name} />
-          <h3>{dog.name}</h3>
-          <h4>{dog.life_span}</h4>
-          <p>{dog.temperament}</p>
-        </div>
-      ))}
+      {loading ? (
+        <div className="loading-message">Fetching data...
+        <div className="spinner"></div>
+        </div>  
+        
+      ) : (
+        dogData.map((dog) => (
+          <div className="dog-card" key={dog.id}>
+            <img src={dog.image} alt={dog.name} />
+            <h3>{dog.name}</h3>
+            <h4>{dog.life_span}</h4>
+            <p>{dog.temperament}</p>
+          </div>
+        ))
+      )}
     </div>
   );
 };

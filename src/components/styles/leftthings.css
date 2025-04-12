@@ -8,7 +8,18 @@
     justify-content:center;
     align-items: center;
     padding: 1rem;
+    gap: 1rem;
 }
 .left-pannel a{ 
     font-size: 1.2rem;
+    box-shadow: 0 0 5px #4e4e4e;
+    width: 90%;
+    height: auto;
+    text-align: center;
+    padding: 5px;
+    border-radius: .5rem;
+}
+
+.left-pannel a:hover{
+    transform: scale(1.1);
 }

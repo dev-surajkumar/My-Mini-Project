@@ -10,8 +10,8 @@ const CardPractice = () => {
                 <img src={cardpractice} alt="No " />
                 <h3>SURAJ KUMAR</h3>
                 <p>Full Stack Developer</p>
-                <h5 className='socials'><i class="fa-solid fa-envelope"></i> <p>surajkumar.codes@gmail.com</p></h5>
-                <h5 className='socials'><i class="fa-brands fa-linkedin"></i>  
+                <h5 className='socials'><i className="fa-solid fa-envelope"></i> <p>surajkumar.codes@gmail.com</p></h5>
+                <h5 className='socials'><i className="fa-brands fa-linkedin"></i>  
                   <a href="www.linkedin.com/in/suraj-kumar-codes">Suraj Kumar</a>
                 </h5>
             </div>

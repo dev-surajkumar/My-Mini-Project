@@ -71,3 +71,61 @@
     text-decoration: none;
     font-size: 1.1rem;
 }
+
+/* Responsive Media Query for smaller screens */
+@media (max-width: 768px) {
+    .account-container {
+      width: 90%;
+      padding: 1rem;
+    }
+  
+    .account-container h1 {
+      font-size: 2rem;
+    }
+  
+    .account-info {
+      gap: 1rem;
+      padding: 1rem 0.5rem;
+    }
+  
+    .account-container label {
+      font-size: 1.2rem;
+    }
+  
+    .action-button {
+      font-size: 1.1rem;
+      height: 2.2rem;
+    }
+  
+    .account-action {
+      font-size: 1.1rem;
+      padding: 0.4rem;
+    }
+  
+    .forgot {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .account-container h1 {
+      font-size: 1.6rem;
+    }
+  
+    .account-container label {
+      font-size: 1rem;
+    }
+  
+    .action-button {
+      font-size: 1rem;
+    }
+  
+    .account-action {
+      font-size: 1rem;
+    }
+  
+    .forgot {
+      font-size: 0.95rem;
+    }
+  }
+  

@@ -50,3 +50,41 @@
     color: #fff;
     font-weight: 700; 
 }
+
+
+
+@media (max-width: 768px) {
+    .pass-reset {
+      width: 90%;
+      padding: 1rem 0.5rem;
+      margin: 2rem auto;
+    }
+  
+    .recheck {
+      width: 100%;
+      padding: 0.8rem;
+      gap: 0.8rem;
+    }
+  
+    .pass-in {
+      flex-direction: column;
+      width: 100%;
+      gap: 0.8rem;
+    }
+  
+    .pass-in input {
+      width: 100%;
+      font-size: 1rem;
+    }
+  
+    .pass-in button {
+      width: 100%;
+      font-size: 1rem;
+    }
+  
+    .pass-submit {
+      width: 100%;
+      font-size: 1rem;
+    }
+  }
+  

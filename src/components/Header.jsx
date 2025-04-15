@@ -6,6 +6,7 @@ import { useContext, useState } from 'react'
 const Header = () => {
   const {username, isLoggedIn, logoutUser}= useContext(AuthContext);
   const [showLogout, setShowLogout]=useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleUsernameClick = () =>{
     setShowLogout(prev => !prev);
@@ -16,9 +17,17 @@ const Header = () => {
     setShowLogout(false);
   };
 
+  const toggleMenu = () => {
+    setMenuOpen(prev => !prev);
+  }
+
   return (
     <div className='header'>
-      <div className="header-nav">
+      <div className="hamburger" onClick={toggleMenu}>
+      <i className="fa-solid fa-bars-staggered"></i>
+      </div>
+
+      <div className={`header-nav ${menuOpen ? 'open': ''}`}>
       <Link to="/">
       <p>Home</p>
       </Link>

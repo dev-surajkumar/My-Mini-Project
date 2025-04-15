@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const RightPannel = () => {
   return (
     <div className='right-pannel'>
-      <Link to="/passreset">Password Reset with Toggle</Link>
+      <Link to="/todolist">To-Do List</Link>
     </div>
   )
 }

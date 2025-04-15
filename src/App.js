@@ -13,6 +13,7 @@ import Passreset from './components/Passreset';
 import Posts from './components/Posts';
 import About from './components/About';
 import Imagegenerator from './components/Imagegenerator';
+import Weather from './components/Weather';
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
       <Route path="/post" element={<Posts/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/aiimage" element={<Imagegenerator/>}/>
+      <Route path="/weather" element={<Weather/>}/>
     </Routes>
   </main>
   <Footer />

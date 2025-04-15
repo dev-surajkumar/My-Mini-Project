@@ -1,15 +1,32 @@
 import { useState, useEffect, useRef } from 'react';
 import './styles/todolist.css';
 
+const getRandomColor = () => {
+  const colors = [
+    "#1f2937", // dark gray
+  "#374151", // darker gray
+  "#4b5563", // slate gray
+  "#0f172a", // navy black
+  "#1e3a8a", // royal blue
+  "#1e40af", // deep blue
+  "#065f46", // deep green
+  "#7c3aed", // deep purple
+  "#b91c1c",
+  ];
+  return colors[Math.floor(Math.random() * colors.length)];
+};
+
 const Todolist = () => {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
+  const [newCategory, setNewCategory] = useState('');
+  const [newDueDate, setNewDueDate] = useState('');
   const [editingIndex, setEditingIndex] = useState(null);
   const [editedTask, setEditedTask] = useState('');
+  const [filter, setFilter] = useState('all');
 
   const isFirstRender = useRef(true);
 
-  // Load tasks from localStorage on page load
   useEffect(() => {
     const storedTasks = localStorage.getItem('tasks');
     if (storedTasks) {
@@ -17,7 +34,6 @@ const Todolist = () => {
     }
   }, []);
 
-  // Save tasks to localStorage, but skip the first render
   useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
@@ -26,46 +42,63 @@ const Todolist = () => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
 
-  // Add Task
   const handleAddTask = () => {
     if (newTask.trim() !== '') {
-      setTasks([...tasks, newTask]);
+      const newTaskObj = {
+        text: newTask,
+        category: newCategory,
+        dueDate: newDueDate,
+        completed: false,
+        bgColor: getRandomColor(),
+      };
+      setTasks([...tasks, newTaskObj]);
       setNewTask('');
+      setNewCategory('');
+      setNewDueDate('');
     }
   };
+
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       handleAddTask();
     }
   };
 
-  // Delete Task
   const handleDeleteTask = (indexToDelete) => {
     const updatedTasks = tasks.filter((_, index) => index !== indexToDelete);
     setTasks(updatedTasks);
   };
 
-  // Enable editing mode
   const handleEditTask = (index) => {
     setEditingIndex(index);
-    setEditedTask(tasks[index]);
+    setEditedTask(tasks[index].text);
   };
 
-  // Save edited task
   const handleSaveEdit = () => {
     const updatedTasks = [...tasks];
-    updatedTasks[editingIndex] = editedTask;
+    updatedTasks[editingIndex].text = editedTask;
     setTasks(updatedTasks);
     setEditingIndex(null);
     setEditedTask('');
   };
 
-  // Handle Enter key while editing
+  const handleToggleComplete = (index) => {
+    const updatedTasks = [...tasks];
+    updatedTasks[index].completed = !updatedTasks[index].completed;
+    setTasks(updatedTasks);
+  };
+
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       handleSaveEdit();
     }
   };
+
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === 'completed') return task.completed;
+    if (filter === 'incomplete') return !task.completed;
+    return true;
+  });
 
   return (
     <div className="todo-container">
@@ -79,12 +112,33 @@ const Todolist = () => {
           onKeyDown={handleKeyDown}
           placeholder="Type Your Task"
         />
+        <input
+          type="text"
+          value={newCategory}
+          onChange={(e) => setNewCategory(e.target.value)}
+          placeholder="Category"
+        />
+        <input
+          type="date"
+          value={newDueDate}
+          onChange={(e) => setNewDueDate(e.target.value)}
+        />
         <button onClick={handleAddTask}>+Add Task</button>
       </div>
 
+      <div className="filter-buttons">
+        <button onClick={() => setFilter('all')}>All</button>
+        <button onClick={() => setFilter('completed')}>Completed</button>
+        <button onClick={() => setFilter('incomplete')}>Incomplete</button>
+      </div>
+
       <div className="task-list">
-        {tasks.map((task, index) => (
-          <div key={index} className="task-item">
+        {filteredTasks.map((task, index) => (
+          <div
+            key={index}
+            className="task-item"
+            style={{ backgroundColor: task.bgColor }}
+          >
             {editingIndex === index ? (
               <input
                 type="text"
@@ -94,10 +148,23 @@ const Todolist = () => {
                 autoFocus
               />
             ) : (
-              <p>{task}</p>
+              <p
+                style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
+              >
+                {task.text}
+              </p>
             )}
 
+            <small>Category: {task.category || 'None'}</small><br />
+            <small>Due: {task.dueDate || 'Not set'}</small>
+
             <div className="task-actions">
+              <i
+                className="fa-solid fa-check"
+                onClick={() => handleToggleComplete(index)}
+                title="Toggle Complete"
+              ></i>
+
               {editingIndex === index ? (
                 <i
                   className="fa-solid fa-check"

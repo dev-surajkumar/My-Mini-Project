@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './styles/resetpass.css'
+import { Link } from 'react-router-dom';
 
 const Passreset = () => {
     const [pass, setPass] = useState('');
@@ -40,6 +41,7 @@ const Passreset = () => {
             </button>
        </div>
        <button className='pass-submit' onClick={handleSubmit}>Submit</button>
+       <Link to='/signup'>Don't have an account? <span className='go-to-signup'>Click Here</span></Link>
       </div>
     </div>
   )

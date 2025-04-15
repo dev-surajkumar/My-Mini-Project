@@ -23,7 +23,7 @@ const Reset = () => {
             </div>
             
         </div>
-        <Link className='action-button'>Send Reset Link</Link>
+        <Link to="/passreset" className='action-button'>Send Reset Link</Link>
         <Link onClick={handleGoBack} className='action-button'>Go Back</Link>
       
     </div>

@@ -20,7 +20,7 @@
 
 }
 .weather-input input{
-   width: 75%; 
+   width: 70%; 
    padding: .5rem;
    border: none;
    outline: none;
@@ -32,7 +32,7 @@
    box-shadow: 0 0 10px hsl(197, 100%, 50%);
 }
 .weather-search{
-    width: 20%;
+    width: 25%;
     padding: .5rem;
     border: none;
     outline: none;
@@ -75,3 +75,46 @@
     font-size: 2rem;
     color: aqua;
 }
+
+
+@media (max-width: 768px) {
+    .weather-container {
+      width: 90%;
+      padding: 1rem;
+    }
+  
+    .weather-input {
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 100%;
+    }
+  
+    .weather-input input {
+      width: 100%;
+      font-size: 1rem;
+      box-shadow: 0 0 6px hsl(197, 100%, 50%);
+    }
+  
+    .weather-search {
+      width: 100%;
+      font-size: 1rem;
+    }
+  
+    .weather-info {
+      width: 100%;
+      padding: 1rem;
+      font-size: 0.95rem;
+    }
+  
+    .weather-info-discription {
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .weather-info-discription i {
+      font-size: 1.5rem;
+    }
+  }
+  

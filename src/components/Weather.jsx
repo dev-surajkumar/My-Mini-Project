@@ -29,7 +29,6 @@ const Weather = () => {
                 `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherKey}&units=metric`
             );
             setWeather(response.data);
-            console.log(response.data);
         } catch (err) {
             if (err.response && err.response.status === 401) {
                 setError('Invalid API key or unable to access the API.');

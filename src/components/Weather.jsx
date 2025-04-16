@@ -7,7 +7,8 @@ const Weather = () => {
     const [weather, setWeather] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const weatherKey = process.env.REACT_API_WEATHER_KEY;
+    const weatherKey = process.env.REACT_APP_WEATHER_KEY;
+
 
     const fetchWeather = async () => {
         if (!city) {
@@ -50,6 +51,11 @@ const Weather = () => {
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                     placeholder="Enter city...."
+                    onKeyDown={(e)=> {
+                        if(e.key === 'Enter'){
+                            fetchWeather();
+                        }
+                    }}
                 />
                 <button className="weather-search" onClick={fetchWeather}>Search</button>
             </div>
@@ -60,10 +66,23 @@ const Weather = () => {
             {weather && !loading && !error && (
                 <div className="weather-info">
                     <h2>{weather.name}, {weather.sys.country}</h2>
-                    <p>{weather.weather[0].description}</p>
-                    <p>Temperature: {weather.main.temp} °C</p>
-                    <p>Humidity: {weather.main.humidity}%</p>
-                    <p>Wind: {weather.wind.speed} m/s</p>
+                    <div className="weather-info-discription">
+                        <i className="fa-solid fa-file-prescription"></i> 
+                        <p>{weather.weather[0].description.toUpperCase()}</p>
+                    </div>
+                    <div className="weather-info-discription">
+                    <i className="fa-solid fa-temperature-quarter"></i>
+                        <p>Temperature: {weather.main.temp} °C</p>
+                    </div>
+                    <div className="weather-info-discription">
+                        <i className="fa-solid fa-droplet"></i>
+                        <p>Humidity: {weather.main.humidity}%</p>
+                    </div>
+                    <div className="weather-info-discription">
+                        <i className="fa-solid fa-wind"></i>
+                        <p>Wind: {weather.wind.speed} m/s</p>
+                    </div>
+                    
                 </div>
             )}
         </div>

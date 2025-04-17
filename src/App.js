@@ -15,6 +15,7 @@ import About from './components/About';
 import Imagegenerator from './components/Imagegenerator';
 import Weather from './components/Weather';
 import Expense from './components/Expense';
+import Typing from './components/Typing';
 
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
       <Route path="/aiimage" element={<Imagegenerator/>}/>
       <Route path="/weather" element={<Weather/>}/>
       <Route path="/expense" element={<Expense/>}/>
+      <Route path="/typing" element={<Typing/>}/>
     </Routes>
   </main>
   <Footer />

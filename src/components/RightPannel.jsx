@@ -5,6 +5,7 @@ const RightPannel = () => {
     <div className='right-pannel'>
       <Link to="/todolist">To-Do List</Link>
       <Link to="/expense">Expense Tracker</Link>
+      <Link to="/typing">Typing Speed Tracker</Link>
     </div>
   )
 }

@@ -4,6 +4,7 @@ const RightPannel = () => {
   return (
     <div className='right-pannel'>
       <Link to="/todolist">To-Do List</Link>
+      <Link to="/expense">Expense Tracker</Link>
     </div>
   )
 }

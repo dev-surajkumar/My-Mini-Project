@@ -7,6 +7,7 @@ const LeftPannel = () => {
       
       <Link to="/aiimage">AI Image Generator</Link>
       <Link to="/weather">My Weather App</Link>
+      <Link to="/userrandom">Random User Generator</Link>
     </div>
   )
 }

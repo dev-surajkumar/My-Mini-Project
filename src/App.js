@@ -16,6 +16,7 @@ import Imagegenerator from './components/Imagegenerator';
 import Weather from './components/Weather';
 import Expense from './components/Expense';
 import Typing from './components/Typing';
+import Randomuser from './components/Randomuser';
 
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
       <Route path="/weather" element={<Weather/>}/>
       <Route path="/expense" element={<Expense/>}/>
       <Route path="/typing" element={<Typing/>}/>
+      <Route path="/userrandom" element={<Randomuser/>}/>
     </Routes>
   </main>
   <Footer />

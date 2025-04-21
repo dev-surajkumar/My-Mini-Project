@@ -1,0 +1,118 @@
+.randomuser-container{
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    border-radius: 1rem;
+    background-color: hsla(0, 0%, 8%, 0.751);
+    color: #fff;
+    margin: 3rem auto;
+    padding: 1rem;
+    padding-bottom: 2rem;
+}
+.randomuser-container h1{
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+.randomuser-container hr{
+    width: 90%;
+    height: .5rem;
+    border-radius: 1rem;
+    outline: none;
+    border: none;
+    background-color: #fff;
+}
+.randomuser-container button{
+    width: 30%;
+    height: auto;
+    padding: .5rem;
+    border: none;
+    outline: none;
+    background-color: rgb(253, 138, 16);
+    color: #fff;
+    border-radius: .5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+.randomuser-container button:hover{
+    transform: scale(.9);
+}
+
+.user-container{
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    color: #333;
+    padding: 1rem;
+    gap: 1rem;
+    text-align: center;
+    border-radius: 1rem;
+}
+.user-container img{
+    width: 30%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 50%;
+    box-shadow: 0 0 10px aqua;
+}
+.user-container span{
+    color: rgb(5, 178, 253);
+}
+
+
+/* Tablets (width: 768px to 1024px) */
+@media (max-width: 1024px) {
+    .randomuser-container {
+      width: 80%;
+    }
+  
+    .randomuser-container h1 {
+      font-size: 2rem;
+    }
+  
+    .randomuser-container button {
+      width: 50%;
+      font-size: 1.2rem;
+    }
+  
+    .user-container img {
+      width: 40%;
+    }
+  }
+  
+  /* Phones (width: up to 767px) */
+  @media (max-width: 767px) {
+    .randomuser-container {
+      width: 90%;
+      padding: 1rem 0.5rem;
+    }
+  
+    .randomuser-container h1 {
+      font-size: 1.8rem;
+      text-align: center;
+    }
+  
+    .randomuser-container button {
+      width: 70%;
+      font-size: 1rem;
+      padding: 0.5rem;
+    }
+  
+    .user-container {
+      width: 100%;
+      gap: 0.5rem;
+    }
+  
+    .user-container img {
+      width: 50%;
+    }
+  }
+  
